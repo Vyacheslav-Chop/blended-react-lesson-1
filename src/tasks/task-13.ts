@@ -1,17 +1,24 @@
 // Задача 13
 
 // Є функція reducer:
+type State = number;
+interface Action {
+  type: "increment" | "decrement";
+}
 
-// function reducer(state, action) {
-//   switch (action.type) {
-//     case "increment":
-//       return state + 1;
-//     case "decrement":
-//       return state - 1;
-//     default:
-//       return state;
-//   }
-// }
+function reducer(state: State, action: Action): State {
+  switch (action.type) {
+    case "increment":
+      return state + 1;
+    case "decrement":
+      return state - 1;
+    default:
+      return state;
+  }
+}
+
+console.log(reducer(32, { type: "increment" }));
+console.log(reducer(10, { type: "decrement" }));
 
 // Завдання:
 

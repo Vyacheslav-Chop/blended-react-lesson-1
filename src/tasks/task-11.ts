@@ -17,9 +17,22 @@
 
 // Наприклад:
 
-// console.log(createUserCard({ username: "Anna", age: 25, city: "Kyiv" }, "admin"));
+console.log(createUserCard({ username: "Anna", age: 25, city: "Kyiv" }, "admin"));
 // // Anna (25) — admin from Kyiv
 
-// console.log(createUserCard({ username: "Max", age: 30 }, "guest"));
+console.log(createUserCard({ username: "Max", age: 30 }, "guest"));
 // // Max (30) — guest from Unknown
 
+interface User {
+  username: string;
+  age: number;
+  city?: string;
+}
+
+type Role = "admin" | "user" | "guest";
+
+function createUserCard(obj: User, role: Role): string {
+  const { username, age, city } = obj;
+  const userCity = city ?? "Unknown";
+  return `${username} (${age}) - ${role} from ${userCity}`;
+}

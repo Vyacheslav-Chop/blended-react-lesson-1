@@ -1,13 +1,13 @@
 // Задача 1
 
 // Опис: Є об'єкт settings, який містить налаштування.
-interface Settings {
+interface Setting {
   darkMode: boolean;
   fontSize: number;
   language: string;
 }
 
-const settings: Settings = {
+const settings: Setting = {
   darkMode: true,
   fontSize: 16,
   language: "en",

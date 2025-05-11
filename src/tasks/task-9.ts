@@ -20,3 +20,53 @@
 // Примітка:
 
 // Контейнер має підтримувати тільки один тип елементів.
+
+interface Container<T> {
+  items: T[];
+  addItem: (item: T) => void;
+  getItem: (index: number) => T;
+}
+
+function getLastElement<T>(container: Container<T>): T {
+  return container.items[container.items.length - 1];
+}
+
+const numberContainer: Container<number> = {
+  items: [],
+
+  addItem(item) {
+    this.items.push(item);
+  },
+
+  getItem(index) {
+    return this.items[index];
+  },
+};
+
+const stringContainer: Container<string> = {
+  items: [],
+
+  addItem(item) {
+    this.items.push(item);
+  },
+
+  getItem(index) {
+    return this.items[index];
+  },
+};
+
+numberContainer.addItem(2);
+numberContainer.addItem(34);
+numberContainer.addItem(45);
+console.log(numberContainer);
+
+stringContainer.addItem("Welcome");
+stringContainer.addItem("Alice");
+
+console.log(stringContainer);
+
+console.log(numberContainer.getItem(1));
+console.log(stringContainer.getItem(0));
+
+console.log(getLastElement(numberContainer));
+console.log(getLastElement(stringContainer));
